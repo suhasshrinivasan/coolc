@@ -5,3 +5,6 @@ A compiler for Cool. Cool (Classroom Object Oriented Language) is an object orie
 Here's the manual for Cool. http://theory.stanford.edu/~aiken/software/cool/cool-manual.pdf
 
 NOTE: WIP. DO NOT RELY ON CODE YET.
+
+#### Project credits:
+Suhas, Sushmita, Nitin, Vishal and Saurabh
