@@ -1,3 +1,8 @@
+/* Driver to test lexer.
+ * In order to test, compile using the following shell command:
+ * gcc -o lexer.o lexer.c lexer.h lexerDriver.c
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
