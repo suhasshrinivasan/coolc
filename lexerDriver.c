@@ -20,8 +20,9 @@ FILE* src;
 bool isValidFileFormat (char* filename)
 {
 	char* format = filename + strlen (filename) - 3;
-	if (!strcmp (format, ".cl"))
+	if (!strcmp (format, ".cl")) {
 		return true;
+	}
 	return false;
 } // end validInputFileFormat
 

@@ -78,8 +78,9 @@ char getNextChar()
 	 * lineBuffer and then increment linePos to point to the 
 	 * next value in the lineBuffer. 
 	 */
-	if (linePos < bufferSize)
+	if (linePos < bufferSize) {
 		return lineBuffer[linePos++];
+	}
 
 	/* If linePos is greater than or equal to length of the bufferSize
 	 * then increment lineNumber, as we traverse the next line
