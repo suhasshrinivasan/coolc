@@ -57,16 +57,16 @@ typedef struct KeywordStruct
 } KeywordRecord;
 
 /* Keyword List */
-extern KeywordRecord KeywordList[NUMBEROFKEYWORDS];
+KeywordRecord KeywordList[NUMBEROFKEYWORDS];
 
 /* stderr. */
-extern unsigned int lineNumber;		// number of the current line.
-extern unsigned int linePos;		// position in the current line.
+unsigned int lineNumber;		// number of the current line.
+unsigned int linePos;		// position in the current line.
 
 /* For single lookahead in parsing. */
-extern TokenType prevToken;
-extern int prevLinePos;
-extern TokenType* currentTokenPointer;
+TokenType prevToken;
+int prevLinePos;
+TokenType* currentTokenPointer;
 
 /* token record structure */
 typedef struct TokenAttributeStruct
@@ -82,12 +82,12 @@ typedef struct TokenAttributeStruct
 /* TokenType getToken() is the principle function of the lexer. 
  * It identifies and returns the TokenType of the current token.
  */ 
-extern TokenType getToken();
+TokenType getToken();
 
 /* getNextChar() gets the next character from the currently being scanned source file line. */
 char getNextChar();
 
 /* ungetChar() backtracks one  in the currently being scanned source file line. */
-extern void ungetChar();
+void ungetChar();
 
 #endif
