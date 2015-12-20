@@ -1,7 +1,9 @@
 #ifndef _HASH_H
 #define _HASH_H
 
-#include "lexer.h"
+#include <stdio.h>
+#include "common.h"
+//~ #include "lexer.h"
 
 /* hashchain */
 typedef struct hashchainnode
@@ -17,7 +19,7 @@ typedef struct hashmaphead
 	unsigned int bucketCount;
 } HashMapHead;
 
-HashMapHead* hashHead;
+//~ HashMapHead* hashHead;
 
 /* Modular hash function. */
 unsigned int hash(char* );

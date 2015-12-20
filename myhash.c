@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include "common.h"
 #include "myhash.h"
-//#include "lexer.h"
 
 /* Insertion into the hash chain. */
 HashChainNode* listInsertFront (HashChainNode* , KeywordRecord );

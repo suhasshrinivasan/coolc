@@ -6,14 +6,15 @@
 #define _LEXER_H
 
 #include <stdio.h>
-//#include "myhash.h"
+#include "common.h"
+#include "myhash.h"
 
 #define MAXTOKENLENGTH   400 // LOOK INTO THIS
 #define MAXKEYWORDLENGTH 8
 #define NUMBEROFKEYWORDS 19
 #define BUFSIZE			 256
-// #define M 				 19     // Hashtable size. Number of keywords.
-// #define ENHASH           false  // enable hashLookup for keywordLookup.
+//~ #define M 				 31     // Hashtable size. Number of keywords.
+#define ENHASH           true  // enable hashLookup for keywordLookup.
 
 /* tokenString contains the current token value. */
 char tokenString[MAXTOKENLENGTH+1];
@@ -22,7 +23,7 @@ char tokenString[MAXTOKENLENGTH+1];
 FILE* source;
 
 /* Hashtable. */
-//HashMapHead* hashHead;
+HashMapHead* hashHead;
 
 /* DFA state assignments */
 typedef enum
@@ -31,33 +32,33 @@ typedef enum
 } StateType;
 
 /* token type assigments */
-typedef enum
-{ 
-	ID, NUM, STRING, COMMENT,
-	PLUS, MINUS, MUL, DIV, 
-	OPEN_PAREN, CLOSE_PAREN, OPEN_CURLY_BRACE, CLOSE_CURLY_BRACE, 
-	OPEN_SQUARE_BRACE, CLOSE_SQUARE_BRACE, COLON, SEMICOLON, 
-	COMMA, ASSIGN, EQUIVALENCE, TILDE, 
-	GREATER_THAN, LESS_THAN_EQUAL, LESS_THAN, NOT, 
-	DOT, AT_RATE_OF,
-	// Key words
-	_CLASS, _ELSE, _FALSE, _FI, _IF, _IN, _INHERITS, _ISVOID, _LET, _LOOP, _POOL, _THEN, _WHILE, _CASE, _ESAC, _NEW, _OF, _NOT, _TRUE,
-	// Unidentified token
-	ERROR, _EOF
-} TokenType;
+//~ typedef enum
+//~ { 
+	//~ ID, NUM, STRING, COMMENT,
+	//~ PLUS, MINUS, MUL, DIV, 
+	//~ OPEN_PAREN, CLOSE_PAREN, OPEN_CURLY_BRACE, CLOSE_CURLY_BRACE, 
+	//~ OPEN_SQUARE_BRACE, CLOSE_SQUARE_BRACE, COLON, SEMICOLON, 
+	//~ COMMA, ASSIGN, EQUIVALENCE, TILDE, 
+	//~ GREATER_THAN, LESS_THAN_EQUAL, LESS_THAN, NOT, 
+	//~ DOT, AT_RATE_OF,
+	//~ // Key words
+	//~ _CLASS, _ELSE, _FALSE, _FI, _IF, _IN, _INHERITS, _ISVOID, _LET, _LOOP, _POOL, _THEN, _WHILE, _CASE, _ESAC, _NEW, _OF, _NOT, _TRUE,
+	//~ // Unidentified token
+	//~ ERROR, _EOF
+//~ } TokenType;
 
 /* Token String list */
 extern char TokenString[][50];
 
 /* Keywords table */
-typedef struct KeywordStruct
-{
-	char* keywordValue;
-	TokenType token;
-} KeywordRecord;
+//~ typedef struct KeywordStruct
+//~ {
+	//~ char* keywordValue;
+	//~ TokenType token;
+//~ } KeywordRecord;
 
 /* Keyword List */
-KeywordRecord KeywordList[NUMBEROFKEYWORDS];
+extern KeywordRecord KeywordList[];
 
 /* stderr. */
 unsigned int lineNumber;		// number of the current line.

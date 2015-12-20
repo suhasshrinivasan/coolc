@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "lexer.h"
-// #include "myhash.h"
+#include "myhash.h"
 
 #define BUFLEN 256   // Allowed length per line
 
@@ -55,9 +55,9 @@ char TokenString[][50] = {"ID", "NUM", "STRING", "COMMENT", "PLUS", "MINUS", "MU
 "LESS_THAN_EQUAL", "LESS_THAN", "NOT", "DOT", "AT_RATE_OF", "_CLASS", "_ELSE", "_FALSE", "_FI", "_IF", "_IN", "_INHERITS", "_ISVOID", "_LET", 
 "_LOOP", "_POOL", "_THEN", "_WHILE", "_CASE", "_ESAC", "_NEW", "_OF", "_NOT", "_TRUE", "ERROR"};
 
-KeywordRecord KeywordList[NUMBEROFKEYWORDS] = {{"class", _CLASS}, {"else", _ELSE}, {"false", _FALSE}, {"fi", _FI}, {"if", _IF}, {"in", _IN}, {"inherits", _INHERITS}, {"isvoid", _ISVOID},
-   {"let", _LET}, {"loop", _LOOP}, {"pool", _POOL}, {"then", _THEN}, {"while", _WHILE}, {"case", _CASE}, {"esac", _ESAC}, {"new", _NEW},
-   {"of", _OF}, {"not", _NOT}, {"true", _TRUE}};
+//~ KeywordRecord KeywordList[NUMBEROFKEYWORDS] = {{"class", _CLASS}, {"else", _ELSE}, {"false", _FALSE}, {"fi", _FI}, {"if", _IF}, {"in", _IN}, {"inherits", _INHERITS}, {"isvoid", _ISVOID},
+   //~ {"let", _LET}, {"loop", _LOOP}, {"pool", _POOL}, {"then", _THEN}, {"while", _WHILE}, {"case", _CASE}, {"esac", _ESAC}, {"new", _NEW},
+   //~ {"of", _OF}, {"not", _NOT}, {"true", _TRUE}};	
 
 /* For single lookahead in parsing. */
 TokenType prevToken = _CLASS;
@@ -116,13 +116,14 @@ void ungetChar() // decrements linpos
 /* keyWordLookup will call hashLookup or linearLookup based on ENHASH which is defined in lexer.h. */
 TokenType keywordLookup (char* key)
 {
-	// if (ENHASH)
-	// {
-	// 	HashChainNode* result = hashLookup (hashHead, key);
-	// 	if (result)
-	// 		return result -> hashedKeyword.token;
-	// 	return ID;
-	// }
+	 if (ENHASH)
+	 {
+		printf("Hashtable: Looking up %s\n", key);
+	 	HashChainNode* result = hashLookup (hashHead, key);
+	 	if (result)
+	 		return result -> hashedKeyword.token;
+	 	return ID;
+	 }
 
 	return linearLookup (key);
 }
