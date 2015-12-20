@@ -188,7 +188,7 @@ void figureStartState(char c, bool* save, StateType* state, TokenType* currentTo
 			case ' ' :
 			case '\n':
 			case '\t': 
-			case '\r':
+			case '\r':	// we need this too! :D
 			//~ case EOF:
 	            *save = false; 
 	            break;
@@ -517,9 +517,12 @@ TokenType getToken()
 	{
 		char c = getNextChar();  // increments linepos and gets the next char from source
 		
+		// code added by Saurabh ~~~
+		// deals with handling of EOF
 		if(c == EOF) {
 			return _EOF;
 		}
+		// ends ~~~
 		
 		switch(state)
 		{
