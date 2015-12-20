@@ -38,8 +38,9 @@ HashMapHead* createHashTable (unsigned int size)
 		if (hashHead -> hashArray = (HashChainNode**) malloc (sizeof (HashChainNode*) * size))
 		{
 			int i;
-			for (i = 0; i < size; i++)
+			for (i = 0; i < size; i++) {
 				hashHead -> hashArray[i] = NULL;
+			}
 			hashHead -> bucketCount = size;
 		}
 	}

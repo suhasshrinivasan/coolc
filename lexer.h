@@ -43,7 +43,7 @@ typedef enum
 	// Key words
 	_CLASS, _ELSE, _FALSE, _FI, _IF, _IN, _INHERITS, _ISVOID, _LET, _LOOP, _POOL, _THEN, _WHILE, _CASE, _ESAC, _NEW, _OF, _NOT, _TRUE,
 	// Unidentified token
-	ERROR 
+	ERROR, _EOF
 } TokenType;
 
 /* Token String list */
